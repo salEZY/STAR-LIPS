@@ -1,0 +1,138 @@
+body{
+    background-image: url(galaxy.jpg);
+    background-size: cover;
+}
+.container{
+    width: 100%;
+    text-align: center;
+}
+.container header{
+    margin-bottom: 30px;
+}
+#myCanvas {
+    margin: 20px auto;
+    border: 2px solid #FFD700;
+    display: none;
+}
+
+.social{
+    margin: 30px auto 0px auto;
+}
+#backToMenu{
+    display: none;
+    margin: 10px auto;
+    background-color: #FFD700;
+    color: black;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    width: 180px;
+    height: 40px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 2px;
+    transition: all 0.5s ease-in;
+    position: absolute;
+    top: 90%;
+    left: 42.5%;
+    webkit-transform: translate(-50%, -50%);
+    z-index: 0;
+}
+#backToMenu:hover{
+    color: #FFD700;
+    background-color: black; 
+    border: 2px solid #FFD700;   
+}
+#retry{
+    display: none;
+    margin: 10px auto;
+    background-color: #FFD700;
+    color: black;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    width: 180px;
+    height: 40px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 2px;
+    transition: all 0.5s ease-in;
+    position: absolute;
+    top: 50%;
+    left: 42.5%;
+    webkit-transform: translate(-50%, -50%);
+    z-index: 0;
+}
+#retry:hover{
+    color: #FFD700;
+    background-color: black; 
+    border: 2px solid #FFD700;
+}
+#startBtn{
+    display: block;
+    margin: 10px auto;
+    background-color: #FFD700;
+    color: black;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    width: 90px;
+    height: 40px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 2px;
+    transition: all 0.5s ease-in;
+}
+#startBtn:hover{
+    color: #FFD700;
+    background-color: black; 
+    border: 2px solid #FFD700;
+}
+span{
+    color: white;
+    font-size: 18px;
+}
+header{
+    border-bottom: 2px solid #FFD700;
+}
+header h1{
+    color: #FFD700;
+}
+
+.social{
+  text-align: left;
+  border-top: 2px solid #FFD700;
+}
+.social span{
+  font-size: 20px;
+  font-weight: bolder;
+  color: #FFD700;
+  padding-top: 5px;
+}
+.social a{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  margin: 0 10px;
+}
+.social .linked{
+  background: url(linked.png);
+  background-size: cover;
+}
+.social .git{
+  background: url(github.png);
+  background-size: cover;
+}
+.social a:hover{
+  -webkit-animation: rotation 1s 1 linear;
+}
+/*--helper--*/
+@-webkit-keyframes rotation {
+        from {
+                -webkit-transform: rotate(0deg);
+        }
+        to {
+                -webkit-transform: rotate(180deg);
+        }
+}
