@@ -112,7 +112,6 @@ let collision = () => {
 
     if (bulletX < bossX + bossW && bulletX + bulletW > bossX && bulletY < bossY + bossH && bulletY + bulletH > bossY) {
         bossHp--;
-        blast.play();
         bulletY = 510;
         if (bossHp == 0) {
             clearBoss();
