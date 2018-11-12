@@ -28,8 +28,8 @@ let bossSpeedY = 5;
 let boss = new Image(bossW, bossH);
 boss.src = "boss.jpg";
 let enemyHp = 5;
-let enemyCount = 25;
-let bossHp = 200;
+let enemyCount = 5;
+let bossHp = 50;
 let enemyR = Math.floor(Math.random()*50);
 let randomNum = Math.floor(Math.random()*200);
 let colors = ['yellow', 'red', 'aqua', 'teal', 'olive', 'navy', 'purple', 'lime', 'silver', 'fuchsia'];
@@ -39,12 +39,17 @@ let colorsPick;
 let mouseX = 0;
 let mouseY = 0;
 
+let blast = new Audio();
+blast.src = "blast.mp3";
+
 back.style.display = "none";
 startBtn.addEventListener('click', startGame);
 retry.addEventListener('click', retryGame);
 back.addEventListener('click', backToMainMenu);
     
 function startGame () {
+    let enemyCount = 25;
+    let bossHp = 200;
     canvas = document.querySelector('#myCanvas');
     ctx = canvas.getContext('2d'); 
     canvas.style.display = "block";
@@ -81,6 +86,7 @@ let updateMousePos = (evt) =>{
 
 let shooting = () => { 
     bulletY -= 40;
+    blast.play();
     if (bulletY <= 0) {
         bulletY = 510;
     }
@@ -146,14 +152,17 @@ let enemy = (x, y, w, h, color) => {
 let clearEnemy = () => {
         enemyY = 0;
         enemyX = 0;
-        enemyH = 0;
         enemyW = 0;
+        enemyH = 0;
 }
 
 let clearBoss = () => {
         bossY = 0;
         bossX = 0;
- 
+        bossW = 0;
+        bossH = 0;
+        bossSpeedX = 0;
+        bossSpeedY = 0;
 }
 
 let random = () => {
@@ -162,6 +171,12 @@ let random = () => {
         enemyW = Math.floor(Math.random()*200)+20;
         enemyH = Math.floor(Math.random()*100)+20;
         enemyR = Math.floor(Math.random()*50);
+        bossW = 100;
+        bossH = 100;
+        bossX = Math.floor(Math.random()*400);
+        bossY = Math.floor(Math.random());
+        bossSpeedX = 5;
+        bossSpeedY = 5;
         colorRand = Math.floor(Math.random()*9);
         colorsPick = colors[colorRand];
 }
@@ -203,6 +218,7 @@ let victory = () => {
         ctx.font="30px Verdana";
         ctx.fillText("SPASIO SI SRBIJU", canvas.width/2-100, canvas.height/2);
         back.style.display = "block"; 
+        clearBoss();
         setTimeout(() => {
            clearInterval(game); 
         }, 3000);    
@@ -222,12 +238,18 @@ let countDown = (count, miliseconds) => {
 function retryGame () {
     enemyCount = 25;
     bossHp = 200;
+    clearEnemy();
     clearBoss();
     startGame(); 
 }
 
 function backToMainMenu () {
+    enemyCount = 25;
+    bossHp = 200;
     back.style.display = "none";
     startBtn.style.display = "block";
-    canvas.style.display = "none";  
+    canvas.style.display = "none"; 
+    clearEnemy();
+    clearBoss(); 
 }
+
