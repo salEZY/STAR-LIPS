@@ -1,7 +1,7 @@
 let canvas;
 let ctx;
 let game;
-let fps = 60;
+let fps = 30;
 let startBtn = document.querySelector('#startBtn');
 let retry = document.querySelector('#retry');
 let back = document.querySelector('#backToMenu');
